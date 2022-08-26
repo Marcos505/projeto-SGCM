@@ -20,7 +20,7 @@
         <div id="usuarioInfo">
             <span>Usuário: Administrador (Adimin)</span>
             <span>Papel: ADMIN</span>
-            <a href="javascript:void(0)">Logout</a>
+            <a href="javascript:void(0)" class="botao">Logout</a>
         </div>
     </header>
 
@@ -41,15 +41,15 @@
     <main>
         <!--Conteúdo Principal-->
         <form action="#">
-            <div>
+            <div class="grid">
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome">
+                <input type="text" name="nome" id="nome" required>
 
                 <label for="registroConselho">Registro:</label>
                 <input type="text" name="registroConselho" id="registroConselho">
 
                 <label for="especialidade">Especialidade:</label>
-                <select name="especialidade" id="especialidade">
+                <select name="especialidade" id="especialidade" required>
                     <option value=""></option>
                     <option value="1">Especialidade A</option>
                     <option value="2">Especialidade B</option>
@@ -59,7 +59,7 @@
                 </select>
 
                 <label for="unidade">Unidade:</label>
-                <select name="unidade" id="unidade">
+                <select name="unidade" id="unidade" required>
                     <option value=""></option>
                     <option value="1">Unidade 1</option>
                     <option value="2">Unidade 2</option>
@@ -74,7 +74,10 @@
                 <label for="email">Email:</label>
                 <input type="text" name="email" id="email">
             </div>
+            <input type="button" value="Cancelar">
+            <input type="submit" value="Salvar">
         </form>
+
         <table >
             <thead>
                 <tr>
@@ -98,8 +101,8 @@
                     <td>5555 - 555</td>
                     <td>proficional_1@gmail.com</td>
                     <td>
-                        <a href="javascript:void(0)">Editar</a>
-                        <a href="javascript:void(0)">Excluir</a>
+                        <a href="javascript:void(0)" class="botao">Editar</a>
+                        <a href="javascript:void(0)" class="botao excluir">Excluir</a>
                     </td>
                 </tr>
                 <tr>
@@ -111,8 +114,8 @@
                     <td>5555 - 555</td>
                     <td>proficional_2@gmail.com</td>
                     <td>
-                        <a href="javascript:void(0)">Editar</a>
-                        <a href="javascript:void(0)">Excluir</a>
+                        <a href="javascript:void(0)" class="botao">Editar</a>
+                        <a href="javascript:void(0)" class="botao excluir">Excluir</a>
                     </td>
                 </tr>
                 <tr>
@@ -124,8 +127,8 @@
                     <td>5555 - 555</td>
                     <td>proficional_3@gmail.com</td>
                     <td>
-                        <a href="javascript:void(0)">Editar</a>
-                        <a href="javascript:void(0)">Excluir</a>
+                        <a href="javascript:void(0)" class="botao">Editar</a>
+                        <a href="javascript:void(0)" class="botao excluir">Excluir</a>
                     </td>
                 </tr>
                 <tr>
@@ -137,8 +140,8 @@
                     <td>5555 - 555</td>
                     <td>proficional_4@gmail.com</td>
                     <td>
-                        <a href="javascript:void(0)">Editar</a>
-                        <a href="javascript:void(0)">Excluir</a>
+                        <a href="javascript:void(0)" class="botao">Editar</a>
+                        <a href="javascript:void(0)" class="botao excluir">Excluir</a>
                     </td>
                 </tr>
                 <tr>
@@ -150,8 +153,8 @@
                     <td>5555 - 555</td>
                     <td>proficional_5@gmail.com</td>
                     <td>
-                        <a href="javascript:void(0)">Editar</a>
-                        <a href="javascript:void(0)">Excluir</a>
+                        <a href="javascript:void(0)" class="botao">Editar</a>
+                        <a href="javascript:void(0)" class="botao excluir">Excluir</a>
                     </td>
                 </tr>
             </tbody>
