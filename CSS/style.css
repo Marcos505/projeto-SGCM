@@ -173,6 +173,9 @@ form {
     text-align: right;
     width: fit-content;/*Não está disponivel para todos os elementos*/
 }
+form#form{
+    display: none;
+}
 
 form div.grid{
     display: grid;

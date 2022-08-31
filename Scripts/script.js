@@ -1,88 +1,81 @@
-/*let botoes_excluir = document.querySelectorAll('a.botao.excluir'); 
-    botoes_excluir.forEach(item => {
-        item.addEventListener('click', () => {
-            if (confirm('Deseja realmente excluir?')) {
-                item.parentNode.parentNode.remove();
-            }
-        })
+let botoes_excluir = document.querySelectorAll('a.botao.excluir'); 
+botoes_excluir.forEach(item => {
+    item.addEventListener('click', () => {
+        if (confirm('Deseja realmente excluir?')) {
+            item.parentNode.parentNode.remove();
+        }
+    })
+});
+
+let botao_editar = document.querySelectorAll('a.botao.editar')
+botao_editar.forEach(item => {
+    item.addEventListener('click', () => {
+        if(confirm('Deseja editar o conteúdo?')) {
+            
+        }
+    })
+})
+
+// let xhr = new XMLHttpRequest();
+let botaoCarregar = document.querySelector("a#load");
+if (botaoCarregar) {
+    botaoCarregar.addEventListener("click", () => {
+        let tabela = document.querySelector("table");
+        let url = "http://my-json-server.typicode.com/danielnsilva/json/profissionais";
+        // xhr.open("GET", url);
+        // xhr.addEventListener("readystatechange", () => {
+            // if (xhr.readyState == 4 && xhr.status == 200) {
+                // let dados = JSON.parse(xhr.responseText);
+        fetch(url)
+        .then(resposta => resposta.json())
+        .then(dados => {
+                for (let item in dados) {
+                    let linha = document.createElement("tr");
+                    let id = document.createElement("td");
+                    let nome = document.createElement("td");
+                    let registro = document.createElement("td");
+                    let especialidade = document.createElement("td");
+                    let unidade = document.createElement("td");
+                    let telefone = document.createElement("td");
+                    let email = document.createElement("td");
+                    let acoes = document.createElement("td");
+                    id.classList.add("fit");
+                    id.textContent = dados[item].id;
+                    nome.textContent = dados[item].nome;
+                    registro.textContent = dados[item].registro;
+                    especialidade.textContent = dados[item].especialidade;
+                    unidade.textContent = dados[item].unidade;
+                    telefone.textContent = dados[item].telefone;
+                    email.textContent = dados[item].email;
+                    acoes.innerHTML = `
+                    <a href="javascript:void(0)" class="botao">Editar</a>\n
+                    <a href="javascript:void(0)" class="botao excluir">Excluir</a>
+                    `;
+                    linha.appendChild(id);
+                    linha.appendChild(nome);
+                    linha.appendChild(registro);
+                    linha.appendChild(especialidade);
+                    linha.appendChild(unidade);
+                    linha.appendChild(telefone);
+                    linha.appendChild(email);
+                    linha.appendChild(acoes);
+                    tabela.tBodies[0].appendChild(linha);
+                }
+        });
+            //  }
+        // });
+        // xhr.send();
     });
-
-    let botao_editar = document.querySelectorAll('a.botao.editar')
-    botao_editar.forEach(item => {
-        item.addEventListener('click', () => {
-            if(confirm('Deseja editar o conteúdo?')) {
-                
-            }
-        })
-    })*/
-class Funcioario {
-
-    constructor(){
-        this.id = 1;
-        this.arrayPessoas = []
-    }
-
-    salvar() {
-        let pessoa = this.lerDados();
-
-        if(this.validaCampos(pessoa)){
-            this.adicionar(pessoa);
-        }
-    }
-
-    adicionar(pessoa) {
-        this.arrayPessoas.push(pessoa);
-        this.id++;
-    }
-
-    lerDados() {
-        let pessoa  = {}
-
-        pessoa.idPessoa = this.id
-        pessoa.nomePessoa = document.getElementById('nome').value;
-        pessoa.registroPessoa = document.getElementById('registro').value;
-        pessoa.especialidadePessoa = document.getElementById('especialidade').value;
-        pessoa.unidadePessoa = document.getElementById('unidade').value;
-        pessoa.telefonePessoa = document.getElementById('telefone').value;
-        pessoa.emailPessoa = document.getElementById('email').value;
-
-        return pessoa;
-    }
-
-    validaCampos(pessoa) {
-        let msg = '';
-        
-        if(pessoa.nomePessoa == ''){
-            msg += '- Informe o Nome do Produto'
-        }
-        if(pessoa.registroPessoa == ''){
-            msg += '- Informe o registro'
-        }
-        if(pessoa.especialidadePessoa == ''){
-            msg += '- Informe a sua Especialidade'
-        }
-        if(pessoa.unidadePessoa == ''){
-            msg += '- Informe a unidade'
-        }
-        if(pessoa.telefonePessoa == ''){
-            msg += '- Informe o seu telefone'
-        }
-        if(pessoa.emailPessoa == ''){
-            msg += '- Informe o seu email'
-        }
-
-        if(msg != ''){
-            alert(msg);
-            return false;
-        }
-        
-        return true;
-
-    }
-
-    cancelar() {
-        alert('Cancelar');
-    }
 }
 
-let pessoa =  new Funcioario();
+let botaoCancelar = document.querySelector('input#cancelar');
+botaoCancelar.addEventListener('click', () => {
+    let formulario = document.querySelector('form#form');
+    formulario.style.display = 'none';
+})
+
+let botaoAdicionar = document.querySelector('a#add');
+botaoAdicionar.addEventListener('click', () => {
+    let formulario = document.querySelector('form#form');
+    formulario.style.display = 'block';
+})
